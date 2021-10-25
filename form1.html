@@ -4,63 +4,84 @@
     <meta charset="utf-8" />
     <title>Form Name</title>
     <!--CSS LINKS-->
-    <!-- <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/signature-pad.css">
-    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/form.css">
-    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/font-awesome.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cnt01.zenoti.com/forms/V1/common/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cnt01.zenoti.com/forms/V1/common/css/jquery-ui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cnt01.zenoti.com/forms/V1/common/css/signature-pad.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cnt01.zenoti.com/forms/V1/common/css/form.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cnt01.zenoti.com/forms/V1/common/css/font-awesome.css"
+    />
     <!--JS LNKS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- <script src="https://{BaseUrl}/jQueryUI.1.12.1.js"></script>
+    <script src="https://{BaseUrl}/jQueryUI.1.12.1.js"></script>
     <script src="https://{BaseUrl}/Bootstrapv3.3.7.js"></script>
     <script src="https://{BaseUrl}/JQuery.validate1.17.0.js"></script>
     <script src="https://{BaseUrl}/signature_pad.js"></script>
-    <script src="https://{BaseUrl}/Form.js"></script> -->
+    <script src="https://{BaseUrl}/Form.js"></script>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /* Signature Drawing Fix */
+        $(window).resize(function () {
+          resizeSignatures();
+        });
 
-        $(document).ready(function () {
-            /* Signature Drawing Fix */
-            $(window).resize(function () {
-                resizeSignatures();
-            });
+        /* Signature Components */
+        createSignature("client-signature", { required: true });
 
-            /* Signature Components */
-            createSignature("client-signature", { "required": true });
+        /* Date Component */
+        $('input[name^="date"]').datepicker({
+          dateFormat: "dd/mm/yy",
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "-100:+0",
+        });
 
-            /* Date Component */
-            $('input[name^="date"]').datepicker({
-                dateFormat: "dd/mm/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "-100:+0"
-            });
+        $('input[name^="date"]').each(function () {
+          if ($(this).val().length > 0) {
+            var dateFormat = new Date($(this).val());
+            var month =
+              parseInt(dateFormat.getMonth()) < 10
+                ? "0" + (dateFormat.getMonth() + 1)
+                : dateFormat.getMonth() + 1;
+            /* CHANGE THIS LINE ACCORDING TO REQUIRED DATE FORMAT. */
+            var newDate =
+              dateFormat.getDate() +
+              "/" +
+              month +
+              "/" +
+              dateFormat.getFullYear();
+            if (newDate.length > 0) {
+              $(this).val(newDate);
+            }
+          }
+        });
 
-            $('input[name^="date"]').each(function () {
-                if ($(this).val().length > 0) {
-                    var dateFormat = new Date($(this).val());
-                    var month = parseInt(dateFormat.getMonth()) < 10 ? '0' + (dateFormat.getMonth() + 1) : (dateFormat.getMonth() + 1);
-                    /* CHANGE THIS LINE ACCORDING TO REQUIRED DATE FORMAT. */
-                    var newDate = dateFormat.getDate() + '/' + month + '/' + dateFormat.getFullYear();
-                    if (newDate.length > 0) {
-                        $(this).val(newDate);
-                    }
-                }
-            });
+        /* Required Fields Handling */
+        $("#form").focusout(function (e) {
+          var reqAttr = $(e.target).attr("required");
+          errorMessage(e, reqAttr);
+        });
 
-
-            /* Required Fields Handling */
-            $('#form').focusout(function (e) {
-                var reqAttr = $(e.target).attr('required');
-                errorMessage(e, reqAttr);
-            });
-
-            $('input[name^="date"]').change(function (e) {
-                var reqAttr = $(e.target).attr('required');
-                errorMessage(e, reqAttr);
-            });
-        });  
-    </script> -->
+        $('input[name^="date"]').change(function (e) {
+          var reqAttr = $(e.target).attr("required");
+          errorMessage(e, reqAttr);
+        });
+      });
+    </script>
   </head>
 
   <body>
