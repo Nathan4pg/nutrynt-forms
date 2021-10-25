@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form Name</title>
+    <!--CSS LINKS-->
+    <!-- <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/signature-pad.css">
+    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/form.css">
+    <link rel="stylesheet" href="https://cnt01.zenoti.com/forms/V1/common/css/font-awesome.css"> -->
+    <!--JS LNKS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://{BaseUrl}/jQueryUI.1.12.1.js"></script>
+    <script src="https://{BaseUrl}/Bootstrapv3.3.7.js"></script>
+    <script src="https://{BaseUrl}/JQuery.validate1.17.0.js"></script>
+    <script src="https://{BaseUrl}/signature_pad.js"></script>
+    <script src="https://{BaseUrl}/Form.js"></script> -->
+
+    <!-- <script type="text/javascript">
+
+        $(document).ready(function () {
+            /* Signature Drawing Fix */
+            $(window).resize(function () {
+                resizeSignatures();
+            });
+
+            /* Signature Components */
+            createSignature("client-signature", { "required": true });
+
+            /* Date Component */
+            $('input[name^="date"]').datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0"
+            });
+
+            $('input[name^="date"]').each(function () {
+                if ($(this).val().length > 0) {
+                    var dateFormat = new Date($(this).val());
+                    var month = parseInt(dateFormat.getMonth()) < 10 ? '0' + (dateFormat.getMonth() + 1) : (dateFormat.getMonth() + 1);
+                    /* CHANGE THIS LINE ACCORDING TO REQUIRED DATE FORMAT. */
+                    var newDate = dateFormat.getDate() + '/' + month + '/' + dateFormat.getFullYear();
+                    if (newDate.length > 0) {
+                        $(this).val(newDate);
+                    }
+                }
+            });
+
+
+            /* Required Fields Handling */
+            $('#form').focusout(function (e) {
+                var reqAttr = $(e.target).attr('required');
+                errorMessage(e, reqAttr);
+            });
+
+            $('input[name^="date"]').change(function (e) {
+                var reqAttr = $(e.target).attr('required');
+                errorMessage(e, reqAttr);
+            });
+        });  
+    </script> -->
+  </head>
+
+  <body>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        color: #222;
+        font-weight: 300;
+      }
+      #nutrynt-form {
+        width: 100%;
+        max-width: 1000px;
+        padding: 10px;
+        margin: 0px auto;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+      }
+      #nutrynt-form label,
+      #nutrynt-form .radio-label {
+        font-weight: 600;
+      }
+      #nutrynt-form .light-text {
+        font-weight: 300;
+      }
+      img {
+        max-width: 100%;
+        display: inline-block;
+      }
+      #form-top-image {
+        width: 300px;
+        margin: 0px auto;
+        display: block;
+      }
+      .nutrynt-form-h2 {
+        margin: 0px;
+        color: #222;
+        background: #a3e0ff;
+        padding: 8px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1em;
+        line-height: 1em;
+      }
+      .input-row {
+        display: flex;
+        justify-content: center;
+      }
+      .nutrynt-form-input-wrapper {
+        max-width: 800px;
+        padding: 20px;
+        margin: 0 auto;
+      }
+      .input-row label {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      .nutrynt-form-input-wrapper input[type="text"] {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #222;
+        padding: 10px 0px;
+      }
+
+      /* COLUMN WIDTHS START */
+      .nutrynt-form-input-wrapper .half {
+        flex: 0.5;
+      }
+      .nutrynt-form-input-wrapper .three-fourth {
+        flex: 0.75;
+      }
+      .nutrynt-form-input-wrapper .one-fourth {
+        flex: 0.25;
+      }
+      .nutrynt-form-input-wrapper .one-third {
+        flex: 0.3333;
+      }
+      /* COLUMN WIDTHS END */
+
+      .radio-side-by-side,
+      .radio-option {
+        display: flex;
+        align-items: center;
+      }
+      .checkbox-option {
+        display: flex;
+      }
+      .checkbox-option input {
+        margin-top: 12px;
+      }
+      #nutrynt-form .radio-side-by-side label {
+        margin-right: 20px;
+      }
+      #nutrynt-form .radio-side-by-side label,
+      #nutrynt-form .checkbox-column label {
+        padding: 10px;
+        font-weight: 300;
+      }
+      .radio-side-by-side input {
+        margin: 0;
+      }
+      .checkbox-column {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+      }
+      .full-width-label {
+        padding: 20px;
+        font-weight: 600;
+        flex: 1;
+      }
+      .full-width {
+        width: 100%;
+      }
+      .stacked {
+        width: 100%;
+      }
+      .stacked h4 {
+        padding: 0 20px;
+        font-size: 0.8em;
+        margin: 0;
+      }
+      .stacked input {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin: 20px;
+        text-overflow: wrap;
+        overflow: scroll;
+      }
+      .full-width.column {
+        width: calc(100% - 40px);
+        margin: 20px;
+      }
+      fieldset {
+        margin: 20px;
+        padding: 0px 10px 10px 10px;
+      }
+      .date-box {
+        display: flex;
+        margin-bottom: 20px;
+      }
+      @media only screen and (max-width: 700px) {
+        .date-box,
+        .input-row,
+        .radio-side-by-side {
+          flex-wrap: wrap;
+          min-width: 100%;
+        }
+
+        .input-row > .half {
+          padding: 20px;
+        }
+
+        /* COLUMN WIDTHS START */
+        .nutrynt-form-input-wrapper .half,
+        .nutrynt-form-input-wrapper .three-fourth,
+        .nutrynt-form-input-wrapper .one-fourth,
+        .nutrynt-form-input-wrapper .one-third,
+        .nutrynt-form-input-wrapper .radio-side-by-side .radio-option {
+          min-width: 100%;
+          flex: 1;
+        }
+        /* COLUMN WIDTHS END */
+      }
+    </style>
+    <form id="nutrynt-form" class="sigPad" action="">
+      <!-- FORM HEADER-->
+      <div id="nutrynt-form-header">
+        <img
+          src="https://secureservercdn.net/166.62.110.60/z9r.716.myftpupload.com/wp-content/uploads/2021/10/nutrynt-logo-new.png"
+          alt="nutrynt logo"
+          id="form-top-image"
+        />
+        <h2 class="nutrynt-form-h2">Personal Information & Health History</h2>
+      </div>
+
+      <!-- FORM INPUT FIELDS START -->
+      <div class="nutrynt-form-input-wrapper">
+        <div class="input-row">
+          <!-- FIRST NAME -->
+          <label for="fname" class="half"
+            >First Name:
+            <input id="fname" type="text" />
+          </label>
+          <!-- LAST NAME -->
+          <label for="lname" class="half"
+            >Last Name:
+            <input id="lname" type="text" />
+          </label>
+        </div>
+
+        <div class="input-row">
+          <!-- D.O.B -->
+          <label for="dob" class="half"
+            >Date of Birth:
+            <input id="dob" type="text" />
+          </label>
+          <!-- GENDER -->
+          <div class="half">
+            <div class="radio-label">Gender:</div>
+            <div class="radio-side-by-side">
+              <div class="radio-option">
+                <input id="male" type="radio" name="gender" />
+                <label for="male">Male</label>
+              </div>
+              <div class="radio-option">
+                <input id="female" type="radio" name="gender" />
+                <label for="female">Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <!-- STREET ADDRESS -->
+          <label for="street-address" class="three-fourth"
+            >Street Address:
+            <input id="street-address" type="text" />
+          </label>
+          <!-- APT NUMBER -->
+          <label for="apt-number" class="one-fourth"
+            >APT #:
+            <input id="apt-number" type="text" />
+          </label>
+        </div>
+
+        <div class="input-row">
+          <!-- CITY -->
+          <label for="city" class="one-third"
+            >City:
+            <input id="city" type="text" />
+          </label>
+          <!-- STATE -->
+          <label for="state" class="one-third"
+            >State:
+            <input id="state" type="text" />
+          </label>
+          <!-- ZIP CODE -->
+          <label for="zip-code" class="one-third"
+            >Zip Code:
+            <input id="zip-code" type="text" />
+          </label>
+        </div>
+
+        <div class="input-row">
+          <!-- PHONE -->
+          <label for="phone" class="half"
+            >Phone:
+            <input id="phone" type="text" />
+          </label>
+          <!-- EMAIL -->
+          <label for="email" class="half"
+            >Email:
+            <input id="email" type="text" />
+          </label>
+        </div>
+
+        <!-- CONDITIONS -->
+        <fieldset>
+          <legend class="full-width-label">
+            Have you been diagnosed with any of the following conditions?
+          </legend>
+          <div class="input-row">
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- BLEEDING/CLOTTING -->
+                <div class="checkbox-option">
+                  <input
+                    id="bleeding-clotting-disorder"
+                    value="bleeding-clotting-disorder"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="bleeding-clotting-disorder"
+                    >Bleeding/Clotting Disorder</label
+                  >
+                </div>
+                <!-- CANCER -->
+                <div class="checkbox-option">
+                  <input
+                    value="cancer"
+                    id="cancer"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="cancer">Cancer</label>
+                </div>
+                <!-- CONGESTIVE HEART FAILURE -->
+                <div class="checkbox-option">
+                  <input
+                    id="cogestive-heart-failure"
+                    value="cogestive-heart-failure"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="cogestive-heart-failure"
+                    >Congestive Heart Failure</label
+                  >
+                </div>
+                <!-- CURRENT INFECTION/ILLNESS -->
+                <div class="checkbox-option">
+                  <input
+                    id="current-infection-illness"
+                    value="current-infection-illness"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="current-infection-illness"
+                    >Current Infection/Illness</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- DIABETES -->
+                <div class="checkbox-option">
+                  <input
+                    id="diabetes"
+                    value="diabetes"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="diabetes">Diabetes</label>
+                </div>
+                <!-- HEPATITIS -->
+                <div class="checkbox-option">
+                  <input
+                    id="hepatitis"
+                    value="hepatitis"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="hepatitis">Hepatitis</label>
+                </div>
+                <!-- HIGH BLOOD PRESSURE -->
+                <div class="checkbox-option">
+                  <input
+                    id="high-blood-pressure"
+                    value="high-blood-pressure"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="high-blood-pressure">High Blood Pressure</label>
+                </div>
+                <!-- HIV/AIDS -->
+                <div class="checkbox-option">
+                  <input
+                    id="hiv-aids"
+                    value="hiv-aids"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="hiv-aids">HIV/AIDS</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- KIDNEY DISEASE/RENAL FAILURE -->
+                <div class="checkbox-option">
+                  <input
+                    id="kidney-disease"
+                    value="kidney-disease"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="kidney-disease"
+                    >Kidney Disease/Renal Failure</label
+                  >
+                </div>
+                <!-- LIVER DISEASE -->
+                <div class="checkbox-option">
+                  <input
+                    id="liver-disease"
+                    value="liver-disease"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="liver-disease">Liver Disease</label>
+                </div>
+                <!-- MTHFR -->
+                <div class="checkbox-option">
+                  <input
+                    id="mthfr-genetic-defect"
+                    value="mthfr-genetic-defect"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="mthfr-genetic-defect">MTHFR Genetic Defect</label>
+                </div>
+                <!-- NONE OF THE ABOVE -->
+                <div class="checkbox-option">
+                  <input
+                    id="none-of-the-above"
+                    value="none-of-the-above"
+                    type="checkbox"
+                    name="conditions"
+                  />
+                  <label for="none-of-the-above">None of the Above</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- OTHER CONDITION -->
+        <div class="input-row">
+          <label class="full-width" for="other-condition"
+            >If other, please specify:
+            <input id="other-condition" type="text" />
+          </label>
+        </div>
+
+        <!-- ALLERGIES -->
+        <fieldset>
+          <legend class="full-width-label">
+            Any allergies to the following:
+          </legend>
+          <div class="input-row">
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- BENADRYL -->
+                <div class="checkbox-option">
+                  <input
+                    id="benadryl"
+                    value="benadryl"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="benadryl">Benadryl</label>
+                </div>
+                <!-- LATEX -->
+                <div class="checkbox-option">
+                  <input
+                    id="latex"
+                    value="latex"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="latex">Latex</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- PEPCID -->
+                <div class="checkbox-option">
+                  <input
+                    id="pecid"
+                    value="pecid"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="pecid">Pepcid</label>
+                </div>
+                <!-- TORODOL -->
+                <div class="checkbox-option">
+                  <input
+                    id="torodol"
+                    value="torodol"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="torodol">Torodol</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="one-third">
+              <div class="checkbox-column">
+                <!-- ZOFRAN -->
+                <div class="checkbox-option">
+                  <input
+                    id="zofran"
+                    value="zofran"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="zofran">Zofran</label>
+                </div>
+                <!-- NONE OF THE ABOVE -->
+                <div class="checkbox-option">
+                  <input
+                    id="none-of-the-above-allergies"
+                    value="none-of-the-above-allergies"
+                    type="checkbox"
+                    name="medicine-allergies"
+                  />
+                  <label for="none-of-the-above-allergies"
+                    >None of the above</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- OTHER ALLERGIES -->
+        <div class="input-row">
+          <label class="full-width" for="other-allergies"
+            >Please list any other allergies:
+            <input id="other-allergies" type="text" />
+          </label>
+        </div>
+
+        <!-- COLD/FLU COUNT PER YEAR -->
+        <div class="input-row">
+          <label class="full-width" for="cold-flue"
+            >Approximately how many times a year do you get a cold or flu?:
+            <input id="cold-flue" type="text" />
+          </label>
+        </div>
+
+        <!-- MEDICATIONS -->
+        <div class="input-row">
+          <div class="stacked">
+            <label class="full-width" for="medications"
+              >Please list any medications you currently take:
+            </label>
+            <h4>
+              <i>
+                Please format as "name / dosage / last taken, name / dosage /
+                last taken"
+              </i>
+            </h4>
+            <input id="medications" type="text-area" />
+          </div>
+        </div>
+
+        <!-- PREGNANT STATUS -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label">
+              Are you pregnant or is there any chance you may be pregnant?
+            </div>
+            <div class="radio-side-by-side">
+              <!-- YES -->
+              <div class="radio-option">
+                <input id="yes-pregnant" type="radio" name="pregnant" />
+                <label for="yes-pregnant">Yes</label>
+              </div>
+              <!-- NO -->
+              <div class="radio-option">
+                <input id="not-pregnant" type="radio" name="pregnant" />
+                <label for="not-pregnant">No</label>
+              </div>
+              <!-- NOT SURE -->
+              <div class="radio-option">
+                <input id="maybe-pregnant" type="radio" name="pregnant" />
+                <label for="maybe-pregnant">I'm Not Sure</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BREASTFEEDING STATUS -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label">Are you breastfeeding?</div>
+            <div class="radio-side-by-side">
+              <!-- YES -->
+              <div class="radio-option">
+                <input
+                  id="yes-breast-feeding"
+                  type="radio"
+                  name="breast-feeding"
+                />
+                <label for="yes-breast-feeding">Yes</label>
+              </div>
+              <!-- NO -->
+              <div class="radio-option">
+                <input
+                  id="not-breast-feeding"
+                  type="radio"
+                  name="breast-feeding"
+                />
+                <label for="not-breast-feeding">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSENT SECTION -->
+      <h2 class="nutrynt-form-h2">CONSENT TO TREATMENT & LIABILITY WAIVER</h2>
+      <div class="nutrynt-form-input-wrapper">
+        <!-- SECTION 1 -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label light-text">
+              I am aware of the common contraindications for receiving IV
+              therapy including but not limited to: chronic kidney disease,
+              atrial fibrillation, cardiac arrhythmia, cardiomyopathy,
+              congestive heart failure, bleeding and clotting disorders,
+              uncontrolled hypertension, liver cirrhosis.
+            </div>
+            <div class="radio-side-by-side">
+              <div class="radio-option">
+                <input
+                  id="consent-1"
+                  type="checkbox"
+                  required
+                  name="consent-1"
+                />
+                <label for="consent-1">Yes, I agree.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SECTION 2 -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label light-text">
+              I am aware of the possible side effects of this treatment,
+              including but not limited to: temporary redness, minor discomfort,
+              small bruising and bleeding at the injection site.
+            </div>
+            <div class="radio-side-by-side">
+              <div class="radio-option">
+                <input
+                  id="consent-2"
+                  type="checkbox"
+                  required
+                  name="consent-2"
+                />
+                <label for="consent-2">Yes, I agree.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SECTION 3 -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label light-text">
+              I consent for my image to appear on NUTRYNT social media
+              (Facebook, Instagram, and website.)
+            </div>
+            <div class="radio-side-by-side">
+              <div class="radio-option">
+                <input id="consent-3-yes" type="radio" name="consent-3" />
+                <label for="consent-3-yes">Yes, I agree.</label>
+              </div>
+              <div class="radio-option">
+                <input id="consent-3-no" type="radio" name="consent-3" />
+                <label for="consent-3-no">No, do not use my image.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SECTION 4 -->
+        <div class="input-row">
+          <div class="column full-width">
+            <div class="radio-label light-text">
+              My questions regarding this treatment have been answered fully. I
+              understand the risks inherited in this medical procedure. By
+              checking this box I certify that the preceding medical, medication
+              and my personal history is true and correct.
+            </div>
+            <div class="radio-side-by-side">
+              <div class="radio-option">
+                <input
+                  id="consent-4"
+                  type="checkbox"
+                  required
+                  name="consent-4"
+                />
+                <label for="consent-4">Yes, I agree.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNATURE -->
+      <h2 class="nutrynt-form-h2">SIGNATURE</h2>
+      <div class="nutrynt-form-input-wrapper">
+        <div class="input-row">
+          <div class="column">
+            <div class="radio-label light-text" style="padding: 20px">
+              By signing this waiver, I fully release and discharge Nutrynt
+              Wellness, LLC (DBA Nutrynt) of all liability and/or responsibility
+              for any complications from this treatment,our medical director and
+              any contractors or employees. Any claims and disputes arising from
+              this treatment are to be settled by binding arbitration in the
+              State of Arizona. An award of arbitration may be confirmed in a
+              court of competent jurisdiction.
+            </div>
+            <div>
+              <div class="input-row">
+                <!-- SIGNATURE -->
+                <div class="three-fourth date-box">
+                  <label>Signature:</label>
+                  <div id="client-signature"></div>
+                </div>
+                <!-- DATE -->
+                <div class="one-fourth date-box">
+                  <label for="date">Date:</label>
+                  <input type="date" name="date" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <input
+        type="submit"
+        class="btn btn-default"
+        style="display: none; position: absolute; left: 750px; top: 7px"
+      />
+    </form>
+  </body>
+</html>
