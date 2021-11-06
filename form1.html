@@ -139,7 +139,7 @@
         display: flex;
         flex-direction: column;
       }
-      .nutrynt-form-input-wrapper input[type="text"] {
+      .nutrynt-form-input-wrapper input[type="text" ztype="string"] {
         border: none;
         outline: none;
         border-bottom: 1px solid #222;
@@ -264,12 +264,22 @@
           <!-- FIRST NAME -->
           <label for="fname" class="half"
             >First Name:
-            <input id="fname" type="text" />
+            <input
+              id="fname"
+              type="text"
+              ztype="string"
+              value="[GuestFirstName]"
+            />
           </label>
           <!-- LAST NAME -->
           <label for="lname" class="half"
             >Last Name:
-            <input id="lname" type="text" />
+            <input
+              id="lname"
+              type="text"
+              ztype="string"
+              value="[GuestLastName]"
+            />
           </label>
         </div>
 
@@ -277,18 +287,30 @@
           <!-- D.O.B -->
           <label for="dob" class="half"
             >Date of Birth:
-            <input id="dob" type="text" />
+            <input id="dob" type="text" ztype="string" value="[DOB]" />
           </label>
           <!-- GENDER -->
           <div class="half">
             <div class="radio-label">Gender:</div>
             <div class="radio-side-by-side">
               <div class="radio-option">
-                <input id="male" type="radio" name="gender" />
+                <input
+                  id="male"
+                  type="radio"
+                  ztype="radio"
+                  name="gender"
+                  value="[GuestGender]"
+                />
                 <label for="male">Male</label>
               </div>
               <div class="radio-option">
-                <input id="female" type="radio" name="gender" />
+                <input
+                  id="female"
+                  type="radio"
+                  ztype="radio"
+                  name="gender"
+                  value="[GuestGender]"
+                />
                 <label for="female">Female</label>
               </div>
             </div>
@@ -299,12 +321,22 @@
           <!-- STREET ADDRESS -->
           <label for="street-address" class="three-fourth"
             >Street Address:
-            <input id="street-address" type="text" />
+            <input
+              id="street-address"
+              type="text"
+              ztype="string"
+              value="[GuestAddress]"
+            />
           </label>
           <!-- APT NUMBER -->
           <label for="apt-number" class="one-fourth"
             >APT #:
-            <input id="apt-number" type="text" />
+            <input
+              id="apt-number"
+              type="text"
+              ztype="string"
+              value="[GuestApartmentNumber]"
+            />
           </label>
         </div>
 
@@ -312,17 +344,22 @@
           <!-- CITY -->
           <label for="city" class="one-third"
             >City:
-            <input id="city" type="text" />
+            <input id="city" type="text" ztype="string" value="[GuestCity]" />
           </label>
           <!-- STATE -->
           <label for="state" class="one-third"
             >State:
-            <input id="state" type="text" />
+            <input id="state" type="text" ztype="string" value="[GuestState]" />
           </label>
           <!-- ZIP CODE -->
           <label for="zip-code" class="one-third"
             >Zip Code:
-            <input id="zip-code" type="text" />
+            <input
+              id="zip-code"
+              type="text"
+              ztype="string"
+              value="[GuestPostalCode]"
+            />
           </label>
         </div>
 
@@ -330,12 +367,22 @@
           <!-- PHONE -->
           <label for="phone" class="half"
             >Phone:
-            <input id="phone" type="text" />
+            <input
+              id="phone"
+              type="text"
+              ztype="string"
+              value="[GuestMobilePhone]"
+            />
           </label>
           <!-- EMAIL -->
           <label for="email" class="half"
             >Email:
-            <input id="email" type="text" />
+            <input
+              id="email"
+              type="text"
+              ztype="string"
+              value="[GuestEmailAddress]"
+            />
           </label>
         </div>
 
@@ -353,6 +400,7 @@
                     id="bleeding-clotting-disorder"
                     value="bleeding-clotting-disorder"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="bleeding-clotting-disorder"
@@ -365,6 +413,7 @@
                     value="cancer"
                     id="cancer"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="cancer">Cancer</label>
@@ -375,6 +424,7 @@
                     id="cogestive-heart-failure"
                     value="cogestive-heart-failure"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="cogestive-heart-failure"
@@ -387,6 +437,7 @@
                     id="current-infection-illness"
                     value="current-infection-illness"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="current-infection-illness"
@@ -404,6 +455,7 @@
                     id="diabetes"
                     value="diabetes"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="diabetes">Diabetes</label>
@@ -414,6 +466,7 @@
                     id="hepatitis"
                     value="hepatitis"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="hepatitis">Hepatitis</label>
@@ -424,6 +477,7 @@
                     id="high-blood-pressure"
                     value="high-blood-pressure"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="high-blood-pressure">High Blood Pressure</label>
@@ -434,6 +488,7 @@
                     id="hiv-aids"
                     value="hiv-aids"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="hiv-aids">HIV/AIDS</label>
@@ -449,6 +504,7 @@
                     id="kidney-disease"
                     value="kidney-disease"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="kidney-disease"
@@ -461,6 +517,7 @@
                     id="liver-disease"
                     value="liver-disease"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="liver-disease">Liver Disease</label>
@@ -471,6 +528,7 @@
                     id="mthfr-genetic-defect"
                     value="mthfr-genetic-defect"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="mthfr-genetic-defect">MTHFR Genetic Defect</label>
@@ -481,6 +539,7 @@
                     id="none-of-the-above"
                     value="none-of-the-above"
                     type="checkbox"
+                    ztype="checkbox"
                     name="conditions"
                   />
                   <label for="none-of-the-above">None of the Above</label>
@@ -494,7 +553,12 @@
         <div class="input-row">
           <label class="full-width" for="other-condition"
             >If other, please specify:
-            <input id="other-condition" type="text" />
+            <input
+              id="other-condition"
+              type="text"
+              ztype="string"
+              value="[OtherCondition]"
+            />
           </label>
         </div>
 
@@ -512,6 +576,7 @@
                     id="benadryl"
                     value="benadryl"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="benadryl">Benadryl</label>
@@ -522,6 +587,7 @@
                     id="latex"
                     value="latex"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="latex">Latex</label>
@@ -537,6 +603,7 @@
                     id="pecid"
                     value="pecid"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="pecid">Pepcid</label>
@@ -547,6 +614,7 @@
                     id="torodol"
                     value="torodol"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="torodol">Torodol</label>
@@ -562,6 +630,7 @@
                     id="zofran"
                     value="zofran"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="zofran">Zofran</label>
@@ -572,6 +641,7 @@
                     id="none-of-the-above-allergies"
                     value="none-of-the-above-allergies"
                     type="checkbox"
+                    ztype="checkbox"
                     name="medicine-allergies"
                   />
                   <label for="none-of-the-above-allergies"
@@ -587,15 +657,25 @@
         <div class="input-row">
           <label class="full-width" for="other-allergies"
             >Please list any other allergies:
-            <input id="other-allergies" type="text" />
+            <input
+              id="other-allergies"
+              type="text"
+              ztype="string"
+              value="[OtherAllergies]"
+            />
           </label>
         </div>
 
         <!-- COLD/FLU COUNT PER YEAR -->
         <div class="input-row">
-          <label class="full-width" for="cold-flue"
+          <label class="full-width" for="cold-flu"
             >Approximately how many times a year do you get a cold or flu?:
-            <input id="cold-flue" type="text" />
+            <input
+              id="cold-flu"
+              type="text"
+              ztype="string"
+              value="[ColdFluPerYear]"
+            />
           </label>
         </div>
 
@@ -611,7 +691,11 @@
                 last taken"
               </i>
             </h4>
-            <input id="medications" type="text-area" />
+            <input
+              id="medications"
+              type="text-area"
+              value="[GuestMedications]"
+            />
           </div>
         </div>
 
@@ -624,17 +708,32 @@
             <div class="radio-side-by-side">
               <!-- YES -->
               <div class="radio-option">
-                <input id="yes-pregnant" type="radio" name="pregnant" />
+                <input
+                  id="yes-pregnant"
+                  type="radio"
+                  ztype="radio"
+                  name="pregnant"
+                />
                 <label for="yes-pregnant">Yes</label>
               </div>
               <!-- NO -->
               <div class="radio-option">
-                <input id="not-pregnant" type="radio" name="pregnant" />
+                <input
+                  id="not-pregnant"
+                  type="radio"
+                  ztype="radio"
+                  name="pregnant"
+                />
                 <label for="not-pregnant">No</label>
               </div>
               <!-- NOT SURE -->
               <div class="radio-option">
-                <input id="maybe-pregnant" type="radio" name="pregnant" />
+                <input
+                  id="maybe-pregnant"
+                  type="radio"
+                  ztype="radio"
+                  name="pregnant"
+                />
                 <label for="maybe-pregnant">I'm Not Sure</label>
               </div>
             </div>
@@ -651,7 +750,9 @@
                 <input
                   id="yes-breast-feeding"
                   type="radio"
+                  ztype="radio"
                   name="breast-feeding"
+                  value="Yes"
                 />
                 <label for="yes-breast-feeding">Yes</label>
               </div>
@@ -660,7 +761,9 @@
                 <input
                   id="not-breast-feeding"
                   type="radio"
+                  ztype="radio"
                   name="breast-feeding"
+                  value="No"
                 />
                 <label for="not-breast-feeding">No</label>
               </div>
@@ -687,8 +790,10 @@
                 <input
                   id="consent-1"
                   type="checkbox"
+                  ztype="checkbox"
                   required
                   name="consent-1"
+                  value="Yes"
                 />
                 <label for="consent-1">Yes, I agree.</label>
               </div>
@@ -708,8 +813,10 @@
                 <input
                   id="consent-2"
                   type="checkbox"
+                  ztype="checkbox"
                   required
                   name="consent-2"
+                  value="Yes"
                 />
                 <label for="consent-2">Yes, I agree.</label>
               </div>
@@ -725,11 +832,23 @@
             </div>
             <div class="radio-side-by-side">
               <div class="radio-option">
-                <input id="consent-3-yes" type="radio" name="consent-3" />
+                <input
+                  id="consent-3-yes"
+                  type="radio"
+                  ztype="radio"
+                  name="consent-3"
+                  value="Yes"
+                />
                 <label for="consent-3-yes">Yes, I agree.</label>
               </div>
               <div class="radio-option">
-                <input id="consent-3-no" type="radio" name="consent-3" />
+                <input
+                  id="consent-3-no"
+                  type="radio"
+                  ztype="radio"
+                  name="consent-3"
+                  value="No"
+                />
                 <label for="consent-3-no">No, do not use my image.</label>
               </div>
             </div>
@@ -749,8 +868,10 @@
                 <input
                   id="consent-4"
                   type="checkbox"
+                  ztype="checkbox"
                   required
                   name="consent-4"
+                  value="Yes"
                 />
                 <label for="consent-4">Yes, I agree.</label>
               </div>
@@ -778,12 +899,12 @@
                 <!-- SIGNATURE -->
                 <div class="three-fourth date-box">
                   <label>Signature:</label>
-                  <div id="client-signature"></div>
+                  <div id="client-signature" ztype="signature"></div>
                 </div>
                 <!-- DATE -->
                 <div class="one-fourth date-box">
                   <label for="date">Date:</label>
-                  <input type="date" name="date" />
+                  <input type="date" name="date" value="[GuestSignature]" />
                 </div>
               </div>
             </div>
